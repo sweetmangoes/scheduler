@@ -14,6 +14,8 @@ import Show from "components/Appointment/Show";
 import Confirm from "components/Appointment/Confirm";
 import Status from "components/Appointment/Status";
 import Error from "components/Appointment/Error";
+import Form from "components/Appointment/Form";
+
 import { act } from "@testing-library/react";
 
 storiesOf("Button", module)
@@ -168,4 +170,16 @@ storiesOf("Appointment", module)
   .add("Error", () => <Error 
     message = "Could not delete appointment"
     onClose= {action("onClose")}
+  />)
+  .add("Form - Edit", () => <Form 
+    student = "Christian"
+    interviewer = {3}
+    interviewers= {interviewers}
+    onSave={action("onSave")}
+    onCancel = {action("onCancel")}
+  />)
+  .add("Form - Create", () => <Form 
+    interviewers= {interviewers}
+    onSave={action("onSave")}
+    onCancel = {action("onCancel")}
   />)
