@@ -1,7 +1,7 @@
-// import React from "react";
+import React, {useState, useEffect} from "react"
 import "components/Application.scss";
 import DayList from "./DayList";
-import React, {useState} from "react"
+import axios from "axios";
 import "components/Appointment"; 
 import Appointment from "components/Appointment";
 
