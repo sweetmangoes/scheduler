@@ -8,7 +8,6 @@ import useVisualMode from "hooks/useVisualMode";
 
 export default function Appointment(props){
 
-  console.log(`props.interview: `, props.interview?.student); 
   
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
@@ -18,7 +17,6 @@ export default function Appointment(props){
     props.interview ? SHOW : EMPTY
   );
 
-  // console.log(`props.interview`, props.interview)
 
   return (
     <article className="appointment">
