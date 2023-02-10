@@ -38,16 +38,10 @@ export default function Appointment(props){
           interview = {props.interview}
           student = {props.interview.student}
           interviewer = {props.interview.interviewer}
+          interviewers = {props.interviewers}
         
         />
       )}
-
-      {/* { props.interview ? 
-      <Show 
-          student = {props.interview.student}
-          interview = {props.interview.interviewer}
-      /> 
-      : <Empty />} */}
      
     </article>
   )
