@@ -11,7 +11,8 @@ export default function Application(props) {
   const [state, setState] = useState({
     day: "Monday",
     days: [],
-    appointments: {}
+    appointments: {}, 
+    interviewers: []
   });
 
   const appointments =getAppointmentsForDay(state, state.day); 
@@ -61,7 +62,12 @@ export default function Application(props) {
       </section>
       <section className="schedule">
         {appointmentList}
-        <Appointment key="last" time="5pm" />
+        <Appointment 
+          key="last" 
+          time="5pm"
+          interviewers={state.interviewers} 
+
+        />
       </section>
     </main>
   );

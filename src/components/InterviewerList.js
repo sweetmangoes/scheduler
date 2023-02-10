@@ -6,7 +6,7 @@ export default function InterviewerList(props){
 
 
 
-  const items = props.interviewers.map((interviewer)=> {
+  const items = props.interviewers?.map((interviewer)=> {
   
     return(
       <InterviewerListItem
