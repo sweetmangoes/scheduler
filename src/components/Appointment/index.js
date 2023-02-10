@@ -38,7 +38,7 @@ export default function Appointment(props){
           interview = {props.interview}
           student = {props.interview.student}
           interviewer = {props.interview.interviewer}
-          interviewers = {props.interviewers}
+          interviewers = {props.interviewers} // not sure if needed or correct
         
         />
       )}
