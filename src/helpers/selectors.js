@@ -20,7 +20,6 @@ export function getInterview(state, interview) {
   }
   else {
     const interviewer = state.interviewers[interview.interviewer];
-    console.log(interviewer)
     return interview = {
       "student": `${interview.student}`,
       "interviewer": {
