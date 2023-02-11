@@ -14,38 +14,24 @@ export function getAppointmentsForDay(state, day) {
   return answer; 
 }
 
-// export function getInterview(state, interview) {
-//   if (!interview){
-//     return null
-//   }; 
-//   const interviewID =  interview.interviewer;
-//   const interviewersID = state.interviewers[interviewID]?.id; 
-//   if(interviewersID === interviewID){
-//     const interviewObj = state.interviewers[interviewID];
-//     interview.interviewer = interviewObj; 
-//     console.log(`interviewerObj: `, interviewObj); 
-//     return interview; 
-//   }
-//   return null; 
-// }
-
 export function getInterview(state, interview) {
   if (!interview) {
     return null;
   }
   else {
     const interviewer = state.interviewers[interview.interviewer];
-
+    console.log(interviewer)
     return interview = {
       "student": `${interview.student}`,
       "interviewer": {
-        "id": interviewer.id,
-        "name": interviewer.name,
-        "avatar": interviewer.avatar
+        "id": interviewer?.id,
+        "name": interviewer?.name,
+        "avatar": interviewer?.avatar
       }
     }
   }
 }
+
 
 export function getInterviewersForDay(state, day) {
   const answer = [];
