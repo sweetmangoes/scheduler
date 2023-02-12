@@ -4,7 +4,7 @@ export function getAppointmentsForDay(state, day) {
   for (const days of state.days){
     if (days.name === day){
       for (const id of days.appointments){
-        if(id === state.appointments[id].id){
+        if(state.appointments[id]){
           let result = state.appointments[id];
           answer.push(result)
         }

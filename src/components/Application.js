@@ -19,6 +19,42 @@ export default function Application(props) {
   const interviewers = getInterviewersForDay(state, state.day); 
   const setDay = day => setState({ ...state, day });
   
+  // Saves and updates for new interviews  
+  function bookInterview(id, interview) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview }
+      };
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+      };
+    return (
+      axios.put(`http://localhost:8001/api/appointments/${id}`, {interview})
+      .then(() => 
+        setState({...state,appointments})
+      ) 
+    )
+  }
+
+  // Deletes appointments 
+  function cancelInterview(id){
+    const appointment = {
+      ...state.appointments[id],
+      interview: null
+      };
+      const appointments = {
+        ...state.appointments,
+        [id]: appointment
+        };
+    return (
+      axios.delete(`http://localhost:8001/api/appointments/${id}`, {data: appointments[id]})
+        .then(() =>
+          setState({...state,appointments})
+        ) 
+    )
+  }
+
   // Schedule - passes components to Appoinment
   const appointmentList = appointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
@@ -29,27 +65,12 @@ export default function Application(props) {
       time={appointment.time}
       interview={interview}
       bookInterview={bookInterview}
+      cancelInterview={cancelInterview}
       interviewers={interviewers}
       />
       )
     })
     
-  // Updates for new interviews  
-  function bookInterview(id, interview) {
-    const appointment = {
-      ...state.appointments[id],
-      interview: { ...interview }
-      };
-    const appointments = {
-      ...state.appointments,
-      [id]: appointment
-      };
-    return (axios.put(`http://localhost:8001/api/appointments/${id}`, {interview})
-      .then(() => 
-      setState({...state,appointments})
-      ) 
-    )
-  }
 
   // fetching API data
   useEffect(()=> {
