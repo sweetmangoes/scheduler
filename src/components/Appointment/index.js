@@ -15,7 +15,8 @@ export default function Appointment(props){
   const CREATE = "CREATE"; 
   const SAVING = "SAVING";
   const DELETE = "DELETE";
-  const CONFIRM = "CONFIRM";  
+  const CONFIRM = "CONFIRM"; 
+  const EDIT = "EDIT";  // Whats the point of this? 
   
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
@@ -39,7 +40,7 @@ export default function Appointment(props){
     transition(CONFIRM); 
   }
 
-  // delete appointment
+  // Deletes appointment
   function deleteAppointment(){
     transition(DELETE); 
     props.cancelInterview(props.id)
@@ -47,6 +48,11 @@ export default function Appointment(props){
         transition(EMPTY)
       });
   }
+
+  // Edits appoinment name and interviewer
+  function edit(){
+    transition(EDIT)
+  } 
     
   return (
     <article className="appointment">
@@ -73,19 +79,28 @@ export default function Appointment(props){
           message = "Deleting"
         />
       }
-      { mode === CONFIRM &&
+      {mode === CONFIRM &&
           <Confirm 
             message = "Are you sure you would like to delete?"
             onCancel = {back}
             onConfirm = {deleteAppointment}
           />
       }
-
+      {mode === EDIT &&
+        <Form 
+          student = {props.interview?.student}
+          interviewer = {props.interview?.interviewer.id}
+          interviewers = {props.interviewers}
+          onCancel = {back}
+          onSave = {save}
+        />
+      }
       {mode === SHOW && (
         <Show
           student={props.interview?.student}
           interviewer={props.interview?.interviewer}
           onDelete={confirm}
+          onEdit={edit}
         />
       )} 
     </article>
