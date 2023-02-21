@@ -15,9 +15,9 @@ export default function useApplicationData(){
   // fetching API data
   useEffect(()=> {
     Promise.all([
-      axios.get(`http://localhost:8001/api/days`),
-      axios.get(`http://localhost:8001/api/appointments`),
-      axios.get(`http://localhost:8001/api/interviewers`),
+      axios.get(`/api/days`),
+      axios.get(`/api/appointments`),
+      axios.get(`/api/interviewers`),
     ]).then((all) => {
       setState(prev => (
         {...prev, days: all[0].data, 
@@ -37,7 +37,7 @@ export default function useApplicationData(){
       [id]: appointment
       };
     return (
-      axios.put(`http://localhost:8001/api/appointments/${id}`, {interview})
+      axios.put(`/api/appointments/${id}`, {interview})
       .then(() => {
 
         // Reducing number of spots: 
