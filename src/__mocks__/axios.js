@@ -56,6 +56,12 @@ const fixtures = {
 
 export default {
   defaults: { baseURL: "" },
+  delete: jest.fn(url => {
+    return Promise.resolve({
+      status: 204, 
+      statusText: "No Content"
+  })
+  }),
   put: jest.fn((url, body) => {
       return Promise.resolve({
         status: 204, 
@@ -71,7 +77,6 @@ export default {
         data: fixtures.days
       });
     }
-
     if (url === "/api/appointments") {
       /* Resolve appointments data */
       return Promise.resolve({

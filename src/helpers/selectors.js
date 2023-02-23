@@ -46,3 +46,15 @@ export function getInterviewersForDay(state, day) {
 }
 return answer; 
 }
+
+export function reduceSpot(state){
+  const cloneDays = [...state.days]
+  const currentDayIndex = state.days.findIndex(day => day.name === state.day); 
+  cloneDays[currentDayIndex].spots--;
+}
+
+export function addSpot(state){
+  const cloneDays = [...state.days]
+  const currentDayIndex = state.days.findIndex(day => day.name === state.day); 
+  cloneDays[currentDayIndex].spots++;
+}

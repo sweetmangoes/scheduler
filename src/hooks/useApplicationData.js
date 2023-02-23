@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { reduceSpot, addSpot } from "helpers/selectors";
 
 export default function useApplicationData(){
 
@@ -39,16 +40,11 @@ export default function useApplicationData(){
     return (
       axios.put(`/api/appointments/${id}`, {interview})
       .then(() => {
-
-        // Reducing number of spots: 
-        const cloneDays = [...state.days];
-        const currentDayIndex = state.days.findIndex(day => day.name === state.day); 
-        if (!edit) { cloneDays[currentDayIndex].spots--;}
-
+        // Update number of spots
+        reduceSpot(state)
         // Updating appointments and # of spots for that day  
-        setState({...state,appointments, days: cloneDays}) 
-
-      }
+        setState({...state,appointments}) 
+        }
       ) 
     )
   }
@@ -66,14 +62,10 @@ export default function useApplicationData(){
     return (
       axios.delete(`http://localhost:8001/api/appointments/${id}`, {data: appointments[id]})
         .then(() => {
-
-          // Adding number of spots
-          const cloneDays = [...state.days];
-          const currentDayIndex = state.days.findIndex(day => day.name === state.day); 
-          if (!edit) {cloneDays[currentDayIndex].spots++;}
-          
-          // Updating appointments and # of spots for that day 
-          setState({...state,appointments, days: cloneDays}); 
+          // Update number of spots
+          addSpot(state)
+          // Updating appointments 
+          setState({...state,appointments}); 
         }) 
     )
   }
