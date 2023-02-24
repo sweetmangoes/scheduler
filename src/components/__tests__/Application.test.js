@@ -110,16 +110,12 @@ describe("Application", () => {
     // // Waiting for the student name
     await waitForElement(() => getByText(appointment, "Carl")); // first approach
     
-    // console.log(prettyDOM(container)); 
     // 8. Check that the DayListItem with the text "Monday" also has the text "1 spots remaining".
     const day = getAllByTestId(container, "day").find(day =>
       queryByText(day, "Monday")
     );
-    
-    // console.log(prettyDOM(container)); 
 
     expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
   });
 
 })
-
