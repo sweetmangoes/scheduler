@@ -28,21 +28,24 @@ export default function useApplicationData(){
   })},[]);
 
   // Saves and updates for new interviews  
-  function bookInterview(id, interview, edit) {
+  function bookInterview(id, interview, button) {
+
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview }
-      };
+    };
     const appointments = {
       ...state.appointments,
       [id]: appointment
-      };
+    };
     return (
       axios.put(`/api/appointments/${id}`, {interview})
       .then(() => {
-        // Update number of spots
-        reduceSpot(state)
-        // Updating appointments and # of spots for that day  
+        //conditional statement to check if interview is null to reduce number of spots
+        if (!state.appointments[id].interview){
+          reduceSpot(state)
+        }
+        // Updating appointments  
         setState({...state,appointments}) 
         }
       ) 
