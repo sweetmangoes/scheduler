@@ -19,7 +19,7 @@ export default function Application(props) {
 
   const appointments = getAppointmentsForDay(state, state.day); 
 
-  // Schedule - passes components to Appoinment
+  // Passes props to Appoinment
   const appointmentList = appointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
     return (
