@@ -4,7 +4,7 @@
 A scheduling appointment app made by using React, Javascript. A feature is to edit, delete, and create appointments.  
 ![homepage](./docs/homepage.png)
 
-You can create an appointment by saving or desire to cancel. 
+You can create an appointment also. 
 ![Appointment](./docs/appointment-form.png)
 
 
@@ -36,4 +36,4 @@ npm run storybook
 - Back-End: Javascript, PSQL
 
 ## Credit
-This project was made based on the [boilerplate project](https://github.com/lighthouse-labs/scheduler/) made by [Francis Bourgouin](https://github.com/FrancisBourgouin) from [Lighthouse Labs](https://www.lighthouselabs.ca/) 
+This project was made based on the [boilerplate project](https://github.com/lighthouse-labs/scheduler/) made by [Francis Bourgouin](https://github.com/FrancisBourgouin) from [Lighthouse Labs](https://www.lighthouselabs.ca/). 
