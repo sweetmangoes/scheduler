@@ -48,13 +48,11 @@ return answer;
 }
 
 export function reduceSpot(state){
-  // const cloneDays = [...state.days]
   const currentDayIndex = state.days.findIndex(day => day.name === state.day); 
   state.days[currentDayIndex].spots--;
 }
 
 export function addSpot(state){
-  // const cloneDays = [...state.days]
   const currentDayIndex = state.days.findIndex(day => day.name === state.day); 
   state.days[currentDayIndex].spots++;
 }
