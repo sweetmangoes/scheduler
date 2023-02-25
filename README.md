@@ -1,11 +1,14 @@
 # Interview Scheduler
 
 ## Purpose 
-A scheduling appointment app made by using React, Javascript. A feature is to edit, delete, and create appointments.  
+A scheduling appointment app made by using React, Javascript. 
 ![homepage](./docs/homepage.png)
 
-You can create an appointment also. 
+### Features
+You can edit, delete, cancel and create appointments.  
 ![Appointment](./docs/appointment-form.png)
+![Features](./docs/delete-cancel-edit.png)
+
 
 
 ## Setup
