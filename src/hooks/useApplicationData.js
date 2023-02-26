@@ -63,7 +63,7 @@ export default function useApplicationData(){
         [id]: appointment
         };
     return (
-      axios.delete(`http://localhost:8001/api/appointments/${id}`, {data: appointments[id]})
+      axios.delete(`/api/appointments/${id}`, {data: appointments[id]})
         .then(() => {
           // Update number of spots
           addSpot(state)
