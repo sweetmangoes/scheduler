@@ -63,7 +63,7 @@ export default function Appointment(props){
   function edit(){
     transition(EDIT)
   } 
-    
+  
   return (
     <article className="appointment" data-testid="appointment">
       <Header

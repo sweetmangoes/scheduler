@@ -6,10 +6,12 @@ export default function useVisualMode(initial) {
 
   function transition(newState, replace = false){
     if (!replace){
-      history.push(mode);
+      history.push(newState); 
+      setHistory(history);
       setMode(newState);
     } else{
-      history.pop(mode);
+      history.pop();
+      setHistory(history);
       setMode(newState); 
     }
   }
@@ -17,9 +19,9 @@ export default function useVisualMode(initial) {
   function back(){
     if(!history.length <= 1 ){
       setMode(history.pop())
+      setHistory(history);
     }
   }; 
-
 
   return {mode, transition, back}; 
 }
