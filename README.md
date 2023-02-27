@@ -1,11 +1,13 @@
 # Interview Scheduler
 
 ## Purpose 
-A scheduling appointment app made by using React, Javascript. 
+ A single-page application (SPA) that allows users to book technical interviews between students and mentors. Appointments can be between the hours of 12 PM and 5 PM, Monday to Friday. Each appointment has one student and one interviewer. The front end of this project is built with React and makes requests to an [API](https://github.com/lighthouse-labs/scheduler-api) to fetch and store appointment data from a database.
+
+
 ![homepage](./docs/homepage.png)
 
 ### Features
-You can edit, delete, cancel and create appointments.  
+You can edit, delete, cancel and create appointments. 
 ![Appointment](./docs/appointment-form.png)
 ![Features](./docs/delete-cancel-edit.png)
 
@@ -13,7 +15,9 @@ You can edit, delete, cancel and create appointments.
 
 ## Setup
 
-Install dependencies with `npm install`.
+- Install dependencies with `npm install`.
+
+- Install [API repository](https://github.com/lighthouse-labs/scheduler-api) to run locally. 
 
 ## Running Webpack Development Server
 
