@@ -12,7 +12,6 @@ You can edit, delete, cancel and create appointments.
 ![Features](./docs/delete-cancel-edit.png)
 
 
-
 ## Setup
 
 - Install dependencies with `npm install`.
